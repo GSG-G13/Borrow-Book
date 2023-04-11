@@ -34,16 +34,16 @@ const createCard = (data) => {
     const card = document.createElement('div');
     card.setAttribute('class', 'book-card');
     const img = document.createElement('img');
-    img.setAttribute('src', data.picture);
+    img.setAttribute('src', 'https://images-na.ssl-images-amazon.com/images/I/41K90unQhYL._SX298_BO1,204,203,200_.jpg');
     img.setAttribute('class', 'book-img');
     const infoDiv = document.createElement('div');
     infoDiv.setAttribute('class', 'info-container');
     const usernameP = document.createElement('p');
-    usernameP.appendChild(document.createTextNode(`Owner: ${data.owner}`));
+    usernameP.appendChild(document.createTextNode(`Owner: ${data.title}`));
     usernameP.setAttribute('class', 'username');
     const booknameP = document.createElement('p');
     usernameP.setAttribute('class', 'bookname');
-    usernameP.appendChild(document.createTextNode(`name: ${data.name}`));
+    usernameP.appendChild(document.createTextNode(`name: ${data.status}`));
     const autherP = document.createElement('p');
     usernameP.setAttribute('class', 'auther');
     usernameP.appendChild(document.createTextNode(`Owner: ${data.author}`));
@@ -65,14 +65,6 @@ saveBtn.addEventListener("click", () => {
     popupForm.classList.remove("active");
     contentHider.classList.remove("active");
     document.body.style.overflow = "auto";
-    console.log('fetch');
-    fetch('home/addBook', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ bookName: bookNameInput.value, bookImg: bookImgInput.value, bookAuthor: authorInput.value })
-    }).then(fetchBooks());
 });
 cancelBtn.addEventListener("click", () => {
     popupForm.classList.remove("active");
@@ -80,4 +72,3 @@ cancelBtn.addEventListener("click", () => {
     document.body.style.overflow = "auto";
 });
 
-fetchBooks();
