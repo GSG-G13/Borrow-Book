@@ -18,8 +18,8 @@ const login = (req, res, next) => {
         req.cookie = token
     })
     .then(() =>{
-       return compare(password, req.user.password)
-   }) 
+    return compare(password, req.user.password)
+}) 
     .then((result) => {
         if(!result) throw Error('The password is wrong')
         res.cookie('test',req.cookie)
