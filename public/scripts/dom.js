@@ -61,11 +61,7 @@ addBtn.addEventListener("click", () => {
     contentHider.classList.toggle("active");
     document.body.style.overflow = "hidden";
 });
-saveBtn.addEventListener("click", () => {
-    popupForm.classList.remove("active");
-    contentHider.classList.remove("active");
-    document.body.style.overflow = "auto";
-});
+
 cancelBtn.addEventListener("click", () => {
     popupForm.classList.remove("active");
     contentHider.classList.remove("active");

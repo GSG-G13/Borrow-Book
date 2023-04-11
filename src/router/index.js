@@ -9,6 +9,6 @@ const router = require("express").Router();
 router.post("/signUp", signUp);
 router.post('/login', login);
 router.get('/getBooks',getBooks )
-router.post("/home/addBook", addBook);
+router.post("/addBook", addBook);
 
 module.exports = router
