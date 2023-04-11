@@ -3,9 +3,8 @@ const { addUser } = require('../../database/queries');
 const { getUserByEmail } = require("../../database/queries/getEmail");
 const { signupSchema } = require('../../utiles/validation/signupSchema');
 const { signToken } = require('../../utiles/functions/sginToken')
-
 const signUp = (req, res, next) => {
-    const {body:{name, password, email, role, picture} } = req;
+    const {body:{userName, firstName, lastName, email, password, role} } = req;
     signupSchema.validateAsync(req.body)
     .then(getUserByEmail)
     .then(({rows}) => {
@@ -14,14 +13,14 @@ const signUp = (req, res, next) => {
         return hash(password, 10)
     })
     .then((password) => {
-        return addUser({name, email, password, role, picture})
+        return addUser({userName, firstName, lastName, email, password, role})
     })
     .then(({rows}) => {
         req.user = rows
         return signToken(rows[0].email)
     })
     .then((token) => {
-        res.cookie('token', req.token);
+        res.cookie('token', token);
            res.json({
             status: 201,
             massage : "the user has been created successfully",

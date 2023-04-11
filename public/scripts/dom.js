@@ -13,7 +13,9 @@ const bookNameInput = document.querySelector("#book-name-input");
 const authorInput = document.querySelector("#author-input");
 const saveBtn = document.querySelector(".save");
 
+const signUpBtn = document.querySelector('.signUp-btn');
 
+signUpBtn.addEventListener('click',() => console.log("Hdsljfas"))
 // function to create dom elements
 const createElement = (tag, className, parent, text) => {
     const ele = document.createElement(tag);

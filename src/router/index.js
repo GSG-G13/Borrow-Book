@@ -6,7 +6,7 @@ const { getBooks } = require('../controllers/getBooks');
 
 const router = require("express").Router();
 
-router.post("/signUp", signUp);
+router.post("/signup", signUp);
 router.post('/login', login);
 router.get('/getBooks',getBooks )
 router.post("/addBook", addBook);
