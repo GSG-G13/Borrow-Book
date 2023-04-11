@@ -7,4 +7,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     })
     .catch((error) => console.log(error))
+
 })
+saveBtn.addEventListener("click", () => {
+    fetch('/addBook',{
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            author : authorInput.value,
+            image: bookImgInput.value,
+            bookName : bookNameInput.value
+        })
+    })
+    .then(() => {
+        console.log('The request has been added')
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+});

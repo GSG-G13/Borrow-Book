@@ -61,23 +61,7 @@ addBtn.addEventListener("click", () => {
     contentHider.classList.toggle("active");
     document.body.style.overflow = "hidden";
 });
-saveBtn.addEventListener("click", () => {
-    fetch('/addBook',{
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            author : authorInput.value,
-            image: bookImgInput.value,
-            bookName : bookNameInput.value
-        })
-    })
-    .then(() => {
-        console.log('The request has been added')
-    })
-    .catch((error) => {
-        console.log(error);
-    })
-});
+
 cancelBtn.addEventListener("click", () => {
     popupForm.classList.remove("active");
     contentHider.classList.remove("active");
