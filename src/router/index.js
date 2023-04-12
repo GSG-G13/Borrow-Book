@@ -16,7 +16,7 @@ const authenticateUser = (req, res, next) => {
   if (!token) {
     return res.redirect("/");
   }
-  verify(token, "privateKey", (err, token_) => {
+  verify(token, "privateKey", (err) => {
     if (err) {
       return res.redirect("/");
     }
