@@ -15,6 +15,7 @@ const saveBtn = document.querySelector(".save");
 
 const signUpBtn = document.querySelector('.signUp-btn');
 
+signUpBtn.addEventListener('click',() => console.log("Hdsljfas"))
 // function to create dom elements
 const createElement = (tag, className, parent, text) => {
     const ele = document.createElement(tag);
@@ -31,30 +32,51 @@ const createElement = (tag, className, parent, text) => {
 // Create card function --------------------------------------------
 
 const createCard = (data) => {
-    const card = document.createElement('div');
-    card.setAttribute('class', 'book-card');
-    const img = document.createElement('img');
-    img.setAttribute('src', 'https://images-na.ssl-images-amazon.com/images/I/41K90unQhYL._SX298_BO1,204,203,200_.jpg');
-    img.setAttribute('class', 'book-img');
-    const infoDiv = document.createElement('div');
-    infoDiv.setAttribute('class', 'info-container');
-    const usernameP = document.createElement('p');
-    usernameP.appendChild(document.createTextNode(`Owner: ${data.title}`));
-    usernameP.setAttribute('class', 'username');
-    const booknameP = document.createElement('p');
-    usernameP.setAttribute('class', 'bookname');
-    usernameP.appendChild(document.createTextNode(`name: ${data.status}`));
-    const autherP = document.createElement('p');
-    usernameP.setAttribute('class', 'auther');
-    usernameP.appendChild(document.createTextNode(`Owner: ${data.author}`));
-    card.appendChild(img);
-    infoDiv.appendChild(usernameP);
-    infoDiv.appendChild(booknameP);
-    infoDiv.appendChild(autherP);
-    card.appendChild(infoDiv);
-    booksSection.appendChild(card);
-
-};
+    const bookCard = document.createElement("div");
+    bookCard.classList.add("book-card");
+    
+    const bookImg = document.createElement("img");
+    bookImg.src = "https://images-na.ssl-images-amazon.com/images/I/41K90unQhYL._SX298_BO1,204,203,200_.jpg";
+    bookImg.alt = "book";
+    bookImg.classList.add("book-img");
+    const infoContainer = document.createElement("div");
+    infoContainer.classList.add("info-container");
+    const ownerPara = document.createElement("p");
+    ownerPara.classList.add("username");
+    ownerPara.textContent = `Owner: moo`;
+    
+    const editIcon = document.createElement("i");
+    editIcon.classList.add("far", "fa-edit");
+    
+    const deleteIcon = document.createElement("i");
+    deleteIcon.classList.add("fas", "fa-trash-alt");
+    const bookNamePara = document.createElement("p");
+    bookNamePara.classList.add("bookname");
+    bookNamePara.textContent =` ${data.title}`;
+    const authorPara = document.createElement("p");
+    authorPara.classList.add("auther");
+    authorPara.textContent = `Auther: ${data.author}`;
+    const statusPara = document.createElement("p");
+    statusPara.classList.add("status");
+    statusPara.textContent = `Status : ${data.status? "available": "Unavailable" }`;
+    const borrowBtn = document.createElement("button");
+    borrowBtn.classList.add("borrow", "btn");
+    borrowBtn.textContent = "Borrow Book";
+    infoContainer.appendChild(ownerPara);
+    infoContainer.appendChild(editIcon);
+    infoContainer.appendChild(deleteIcon);
+    infoContainer.appendChild(bookNamePara);
+    infoContainer.appendChild(authorPara);
+    infoContainer.appendChild(statusPara);
+    infoContainer.appendChild(borrowBtn);
+    
+    bookCard.appendChild(bookImg);
+    bookCard.appendChild(infoContainer);
+    const bookContainer = document.querySelector(".book-container");
+    bookContainer.appendChild(bookCard);
+    
+    
+    };
 // pop up form ------------------------------------------
 
 addBtn.addEventListener("click", () => {
