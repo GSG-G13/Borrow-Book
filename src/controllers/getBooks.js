@@ -3,7 +3,6 @@ const { getBooksFormDatabase } = require("../database/queries/getBooks")
 const getBooks = (req, res) => {
     getBooksFormDatabase()
     .then(({rows}) => {
-        console.log(rows)
         res.json({
             status:200,
             rows
