@@ -5,7 +5,7 @@ const { signUp } = require("../controllers/sginup/sginup");
 const { addBook } = require("../controllers/addBooks");
 const { getBooks } = require('../controllers/getBooks');
 const {logout} = require('../controllers/sginup/logout')
-const deleteBook = require('../controllers/deleteBook');
+const {deleteBook} = require('../controllers/deleteBook');
 const { verify } = require("jsonwebtoken");
 const router = require("express").Router();
 

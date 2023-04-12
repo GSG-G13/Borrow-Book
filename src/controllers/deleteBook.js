@@ -1,4 +1,4 @@
-const  {deleteBookQuery}  = require('../Database/queries');
+const  {deleteBookQuery}  = require('../database/queries/deleteBookQuery');
 
 
 const deleteBook = (req, res) => {
@@ -7,4 +7,4 @@ const deleteBook = (req, res) => {
     .then(data => res.status(200).send(data.rows))
 };
 
-module.exports = deleteBook;
+module.exports = {deleteBook};
