@@ -14,7 +14,7 @@
   "dependencies": {
     "bcrypt": "^5.1.0",
     "compression": "^1.7.4",
-    "cookies-parser": "^1.2.0",
+    "cookie-parser": "^1.4.6",
     "cross-env": "^7.0.3",
     "crossenv": "^0.0.2-security",
     "dotenv": "^16.0.3",
