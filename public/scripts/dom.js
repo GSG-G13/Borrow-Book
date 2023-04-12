@@ -15,7 +15,7 @@ const saveBtn = document.querySelector(".save");
 
 const signUpBtn = document.querySelector('.signUp-btn');
 
-//signUpBtn.addEventListener('click',() => console.log("Hdsljfas"))
+signUpBtn.addEventListener('click',() => console.log("Hdsljfas"))
 // function to create dom elements
 const createElement = (tag, className, parent, text) => {
     const ele = document.createElement(tag);
@@ -86,17 +86,19 @@ const createCard = (data) => {
     
     
     };
-// pop up form ------------------------------------------
+
 
 addBtn.addEventListener("click", () => {
-    popupForm.classList.toggle("active");
-    contentHider.classList.toggle("active");
+    
+    popupForm.classList.add("active");
+    contentHider.classList.add("active");
     document.body.style.overflow = "hidden";
+    
 });
 
 cancelBtn.addEventListener("click", () => {
+   
     popupForm.classList.remove("active");
     contentHider.classList.remove("active");
     document.body.style.overflow = "auto";
 });
-

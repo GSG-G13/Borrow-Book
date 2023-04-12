@@ -27,7 +27,7 @@
             <ul class="list">
                 <li><a href="./books.html">Home</a></li>
                 <li><a href="./profile.html">Profile</a></li>
-                <a class="logout" href="/logout">Log Out</a>
+               <a href="/logout" class="logout"> Log Out</a> 
             </ul>
         </nav>
     </header>
@@ -51,13 +51,15 @@
                 <button class="cancel">cancel</button>
             </div>
         </div>
+        <div class="warning hidden">Please fill all the fields</div>
     </div>
     <div class="content-hider"></div>
     <section class="books-section">
         <button class="add-btn">Add Book</button>
+        <div class = "message hidden">Book Added</div>
         <h1 class='title'> All Books </h1>
         <div class="book-container">
-            <div class='book-card'>
+            <!-- <div class='book-card'>
                 <img src="https://images-na.ssl-images-amazon.com/images/I/41K90unQhYL._SX298_BO1,204,203,200_.jpg" alt="book" class="book-img" />
                 <div class="info-container">
                     <p class="username">Owner:shatha</p>
@@ -68,7 +70,7 @@
                     <p class="status">Status :available</p>
                     <button class="borrow btn">Borrow Book</button>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
     <script src="../scripts/dom.js"></script>

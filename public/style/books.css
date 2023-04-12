@@ -17,3 +17,13 @@
     border-bottom:4px solid var(--main-color);
     margin: 20px auto;
   }
+.message {
+  font-size: 20px;
+  color: green;
+}
+.warning {
+  color: red;
+}
+.hidden {
+  display: none;
+}
