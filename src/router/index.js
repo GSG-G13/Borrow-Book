@@ -7,8 +7,8 @@ const { getBooks } = require('../controllers/getBooks');
 const {logout} = require('../controllers/sginup/logout')
 const {deleteBook} = require('../controllers/deleteBook');
 const { verify } = require("jsonwebtoken");
+const {borrowBook} = require('../controllers/borrowBook')
 const router = require("express").Router();
-
 const cookieParser = require("cookie-parser");
 router.use(cookieParser());
 const authenticateUser = (req, res, next) => {
@@ -32,9 +32,10 @@ router.post("/addBook", authenticateUser, addBook);
 router.get("/main", (req, res) => {
     res.sendFile(path.join(__dirname, "..", "..", "public", "pages", "books.html"));
 });
-
 router.get('logout', logout);
 router.delete('/deleteBook/:id', deleteBook);
+router.post('/borrowBook/:id', borrowBook)
+
 
 
 module.exports = router;
