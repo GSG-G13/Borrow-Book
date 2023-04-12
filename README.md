@@ -18,6 +18,7 @@ To run the application locally, follow these steps:
 2. Install dependencies: `npm install`
 3. Create a `.env` file in the root directory and add the following environment variables:
     Db_URL=<your Postgres connection>
+    
     SECRET_KEY=<your secret key for JWT>
 
 4. Run the application: `npm start`
