@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 saveBtn.addEventListener("click", () => {
     
-    if(bookNameInput.value || bookImgInput.value || authorInput.value) {
+    if(bookNameInput.value && bookImgInput.value && authorInput.value) {
         warning.classList.add('hidden');
     fetch('/addBook',{
         method: "POST",
