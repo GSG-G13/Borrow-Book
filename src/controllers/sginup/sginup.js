@@ -3,14 +3,13 @@ const { addUser } = require('../../database/queries');
 const { getUserByEmail } = require("../../database/queries/getEmail");
 const { signupSchema } = require('../../utiles/validation/signupSchema');
 const { signToken } = require('../../utiles/functions/sginToken');
-const { customError } = require('./handelError')
 const signUp = (req, res, next) => {
     const {body:{userName, firstName, lastName, email, password, role} } = req;
     signupSchema.validateAsync(req.body)
     .then(getUserByEmail)
-    .then(({rows}) => {
-        console.log(rows)
-        if(rows.length > 0)  customError("The user is already exit",400)
+    .then((rows) => {
+        const rows1 = [...rows.rows]
+        if(rows1.length > 0)  throw("The user is already exit",400)
         return hash(password, 10)
     })
     .then((password) => {
