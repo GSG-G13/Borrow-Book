@@ -49,9 +49,18 @@ const createCard = (data) => {
     
     const deleteIcon = document.createElement("i");
     deleteIcon.classList.add("fas", "fa-trash-alt");
+
+    deleteIcon.addEventListener('click',()=>{
+        fetch(`/deleteBook/${data.id}`,{
+            method: 'DELETE',
+        })
+        .then((res) => res.json())
+        .then((res) => window.location.reload())
+        .catch((err) => console.log(err, 'err  in deleting a card'))
+    })
     const bookNamePara = document.createElement("p");
     bookNamePara.classList.add("bookname");
-    bookNamePara.textContent =` ${data.title}`;
+    bookNamePara.textContent =`${data.title}`;
     const authorPara = document.createElement("p");
     authorPara.classList.add("auther");
     authorPara.textContent = `Auther: ${data.author}`;
@@ -76,13 +85,7 @@ const createCard = (data) => {
     
     
     };
-// pop up form ------------------------------------------
-// const addBookFormHandler = (overflow) => {
-//     popupForm.classList.toggle("active");
-//     contentHider.classList.toggle("active");
-//     document.body.style.overflow = overflow;
 
-// }
 
 addBtn.addEventListener("click", () => {
     
@@ -98,8 +101,3 @@ cancelBtn.addEventListener("click", () => {
     contentHider.classList.remove("active");
     document.body.style.overflow = "auto";
 });
-
-
-// logout.addEventListener('click' , () => {
-    
-// })

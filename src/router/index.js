@@ -5,10 +5,8 @@ const { signUp } = require("../controllers/sginup/sginup");
 const { addBook } = require("../controllers/addBooks");
 const { getBooks } = require('../controllers/getBooks');
 const {logout} = require('../controllers/sginup/logout')
+const {deleteBook} = require('../controllers/deleteBook');
 const { verify } = require("jsonwebtoken");
-
-
-
 const router = require("express").Router();
 
 const cookieParser = require("cookie-parser");
@@ -36,6 +34,7 @@ router.get("/main", (req, res) => {
 });
 
 router.get('logout', logout);
+router.delete('/deleteBook/:id', deleteBook);
 
 
 module.exports = router;

@@ -14,10 +14,8 @@ var bookImgInput = document.querySelector("#book-img-input");
 var bookNameInput = document.querySelector("#book-name-input");
 var authorInput = document.querySelector("#author-input");
 var saveBtn = document.querySelector(".save");
-var signUpBtn = document.querySelector('.signUp-btn');
-signUpBtn.addEventListener('click', function () {
-  return console.log("Hdsljfas");
-}); // function to create dom elements
+var signUpBtn = document.querySelector('.signUp-btn'); //signUpBtn.addEventListener('click',() => console.log("Hdsljfas"))
+// function to create dom elements
 
 var createElement = function createElement(tag, className, parent, text) {
   var ele = document.createElement(tag);
@@ -50,9 +48,20 @@ var createCard = function createCard(data) {
   editIcon.classList.add("far", "fa-edit");
   var deleteIcon = document.createElement("i");
   deleteIcon.classList.add("fas", "fa-trash-alt");
+  deleteIcon.addEventListener('click', function () {
+    fetch("/deleteBook/".concat(data.id), {
+      method: 'DELETE'
+    }).then(function (res) {
+      return res.json();
+    }).then(function (res) {
+      return window.location.reload();
+    })["catch"](function (err) {
+      return console.log(err, 'err  in deleting a card');
+    });
+  });
   var bookNamePara = document.createElement("p");
   bookNamePara.classList.add("bookname");
-  bookNamePara.textContent = " ".concat(data.title);
+  bookNamePara.textContent = "".concat(data.title);
   var authorPara = document.createElement("p");
   authorPara.classList.add("auther");
   authorPara.textContent = "Auther: ".concat(data.author);

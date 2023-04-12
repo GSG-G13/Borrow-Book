@@ -1,11 +1,14 @@
-
+const bookList  = document.querySelector('.book-container')
 const message = document.querySelector('.message');
 const popContainer = document.querySelector('.popup-form-container');
 const warning = document.querySelector('.warning');
+
+
 document.addEventListener('DOMContentLoaded', () => {
     fetch('/getBooks')
     .then((res) => res.json())
     .then(({rows}) => {
+        bookList.textContent = '';
         rows.forEach(card => {
             createCard(card)
         });
