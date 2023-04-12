@@ -1,4 +1,4 @@
 const logout = (req, res) => {
-    res.statue(200).clearCookie('token').redirect('/')
+    res.status(200).clearCookie('token').redirect('/')
 }
 module.exports = { logout }
