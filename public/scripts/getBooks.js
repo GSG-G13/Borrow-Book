@@ -1,7 +1,10 @@
+const bookList  = document.querySelector('.book-container')
+
 document.addEventListener('DOMContentLoaded', () => {
     fetch('/getBooks')
     .then((res) => res.json())
     .then(({rows}) => {
+        bookList.textContent = '';
         rows.forEach(card => {
             createCard(card)
         });

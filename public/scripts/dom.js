@@ -15,7 +15,7 @@ const saveBtn = document.querySelector(".save");
 
 const signUpBtn = document.querySelector('.signUp-btn');
 
-signUpBtn.addEventListener('click',() => console.log("Hdsljfas"))
+//signUpBtn.addEventListener('click',() => console.log("Hdsljfas"))
 // function to create dom elements
 const createElement = (tag, className, parent, text) => {
     const ele = document.createElement(tag);
@@ -50,9 +50,18 @@ const createCard = (data) => {
     
     const deleteIcon = document.createElement("i");
     deleteIcon.classList.add("fas", "fa-trash-alt");
+
+    deleteIcon.addEventListener('click',()=>{
+        fetch(`/deleteBook/${data.id}`,{
+            method: 'DELETE',
+        })
+        .then((res) => res.json())
+        .then((res) => window.location.reload())
+        .catch((err) => console.log(err, 'err  in deleting a card'))
+    })
     const bookNamePara = document.createElement("p");
     bookNamePara.classList.add("bookname");
-    bookNamePara.textContent =` ${data.title}`;
+    bookNamePara.textContent =`${data.title}`;
     const authorPara = document.createElement("p");
     authorPara.classList.add("auther");
     authorPara.textContent = `Auther: ${data.author}`;
