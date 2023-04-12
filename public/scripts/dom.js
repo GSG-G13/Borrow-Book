@@ -56,14 +56,23 @@ const createCard = (data) => {
 
 };
 // pop up form ------------------------------------------
+// const addBookFormHandler = (overflow) => {
+//     popupForm.classList.toggle("active");
+//     contentHider.classList.toggle("active");
+//     document.body.style.overflow = overflow;
+
+// }
 
 addBtn.addEventListener("click", () => {
-    popupForm.classList.toggle("active");
-    contentHider.classList.toggle("active");
+    
+    popupForm.classList.add("active");
+    contentHider.classList.add("active");
     document.body.style.overflow = "hidden";
+    
 });
 
 cancelBtn.addEventListener("click", () => {
+   
     popupForm.classList.remove("active");
     contentHider.classList.remove("active");
     document.body.style.overflow = "auto";
