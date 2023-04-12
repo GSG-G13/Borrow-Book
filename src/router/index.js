@@ -12,7 +12,7 @@ const router = require("express").Router();
 const cookieParser = require("cookie-parser");
 router.use(cookieParser());
 const authenticateUser = (req, res, next) => {
-  const token = req.cookies.tokenn;
+  const token = req.cookies.token;
   if (!token) {
     return res.redirect("/");
   }
