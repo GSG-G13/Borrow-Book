@@ -2,14 +2,15 @@ const { hash } = require("bcrypt");
 const { addUser } = require('../../database/queries');
 const { getUserByEmail } = require("../../database/queries/getEmail");
 const { signupSchema } = require('../../utiles/validation/signupSchema');
-const { signToken } = require('../../utiles/functions/sginToken')
+const { signToken } = require('../../utiles/functions/sginToken');
+const { customError } = require('./handelError')
 const signUp = (req, res, next) => {
     const {body:{userName, firstName, lastName, email, password, role} } = req;
     signupSchema.validateAsync(req.body)
     .then(getUserByEmail)
     .then(({rows}) => {
         console.log(rows)
-        if(rows.length > 0) throw Error("The user is already exit")
+        if(rows.length > 0)  customError("The user is already exit",400)
         return hash(password, 10)
     })
     .then((password) => {
@@ -30,11 +31,7 @@ const signUp = (req, res, next) => {
     })
 
     .catch((error) => {
-        console.log(error);
-        res.json({
-            status: 404,
-            massage : error
-        })
+        next(error)
     })
 
 }
