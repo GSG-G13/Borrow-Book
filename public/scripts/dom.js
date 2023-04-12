@@ -15,7 +15,6 @@ const saveBtn = document.querySelector(".save");
 
 const signUpBtn = document.querySelector('.signUp-btn');
 
-signUpBtn.addEventListener('click',() => console.log("Hdsljfas"))
 // function to create dom elements
 const createElement = (tag, className, parent, text) => {
     const ele = document.createElement(tag);
@@ -32,7 +31,6 @@ const createElement = (tag, className, parent, text) => {
 // Create card function --------------------------------------------
 
 const createCard = (data) => {
-    console.log('hello');
     const card = document.createElement('div');
     card.setAttribute('class', 'book-card');
     const img = document.createElement('img');
@@ -55,6 +53,7 @@ const createCard = (data) => {
     infoDiv.appendChild(autherP);
     card.appendChild(infoDiv);
     booksSection.appendChild(card);
+
 };
 // pop up form ------------------------------------------
 
