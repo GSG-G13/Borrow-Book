@@ -1,3 +1,5 @@
+const path = require('path');
+
 const { login } = require("../controllers/sginup/login");
 const { signUp } = require("../controllers/sginup/sginup");
 const { addBook } = require("../controllers/addBooks");
@@ -26,8 +28,14 @@ const authenticateUser = (req, res, next) => {
 
 router.post("/signup", signUp);
 router.post('/login', login);
+router.get('/logout', logout);
 router.get("/getBooks", authenticateUser, getBooks);
 router.post("/addBook", authenticateUser, addBook);
+router.get("/main", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "..", "public", "pages", "books.html"));
+});
+
 router.get('logout', logout);
 
-module.exports = router
+
+module.exports = router;
