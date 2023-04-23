@@ -28,12 +28,11 @@ const createElement = (tag, className, parent, text) => {
     return ele;
 };
 
-// Create card function --------------------------------------------
 
 const createCard = (data) => {
+    console.log(data);
     const bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
-    
     const bookImg = document.createElement("img");
     bookImg.src = "https://images-na.ssl-images-amazon.com/images/I/41K90unQhYL._SX298_BO1,204,203,200_.jpg";
     bookImg.alt = "book";
@@ -70,6 +69,13 @@ const createCard = (data) => {
     const borrowBtn = document.createElement("button");
     borrowBtn.classList.add("borrow", "btn");
     borrowBtn.textContent = "Borrow Book";
+    borrowBtn.addEventListener('click' , () => {
+        fetch(`/borrowBook/${data.id}`,{
+            method: "POST",
+        })
+        .then((res) => res.json())
+        .catch((err) => console.log(err));
+    })
     infoContainer.appendChild(ownerPara);
     infoContainer.appendChild(editIcon);
     infoContainer.appendChild(deleteIcon);

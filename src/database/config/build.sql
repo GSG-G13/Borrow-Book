@@ -3,7 +3,7 @@ drop table if exists users,books cascade;
 
 CREATE TABLE books (
     id serial primary key,
-    borrowID  VARCHAR(200) default null,
+    borrowID  integer  default null,
     author VARCHAR(255) NOT NULL,
     title VARCHAR(255) NOT NULL,
     picture VARCHAR(255),
